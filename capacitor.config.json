@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ezeeui_rider",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

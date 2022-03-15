@@ -1,0 +1,8 @@
+{
+  "name": "ezeeui_rider",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
