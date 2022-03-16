@@ -1,8 +1,12 @@
 {
-  "name": "ezeeui_rider",
-  "integrations": {
-    "capacitor": {},
-    "cordova": {}
-  },
-  "type": "angular"
+  "defaultProject": "ezeeui_rider",
+  "projects": {
+    "ezeeui_rider": {
+      "name": "ezeeui_rider",
+      "integrations": {
+        "cordova": {}
+      },
+      "type": "angular"
+    }
+  }
 }

@@ -1,10 +1,10 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "defaultProject": "app",
+  "defaultProject": "ezeeui_rider",
   "newProjectRoot": "projects",
   "projects": {
-    "app": {
+    "ezeeui_rider": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -31,7 +31,10 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "styles": [
+              "src/theme/variables.scss",
+              "src/global.scss"
+            ],
             "scripts": [],
             "aot": false,
             "vendorChunk": true,
@@ -140,6 +143,30 @@
             },
             "ci": {
               "devServerTarget": "app:serve:ci"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/cordova-builders:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "ezeeui_rider:ionic-cordova-build",
+            "devServerTarget": "ezeeui_rider:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "ezeeui_rider:ionic-cordova-build:production",
+              "devServerTarget": "ezeeui_rider:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/cordova-builders:cordova-build",
+          "options": {
+            "browserTarget": "ezeeui_rider:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ezeeui_rider:build:production"
             }
           }
         }
