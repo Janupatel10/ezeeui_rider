@@ -31,29 +31,29 @@ export class RegisterUserComponent implements OnInit {
   }
 
   login() {
-    const payload = {
-      phoneNumber: this.phoneNumber,
-      otp: "",
-      otpExpirationTime: ''
-    };
-    this.$http.httpCall().post(this.$api.goTo().merchantLogin(), payload, {})
-      .then(data => {
-        const res: any = data;
-        if (res.status === 200) {
-          localStorage.setItem("phoneNumber", this.phoneNumber);
-          data = JSON.parse(res.data);
-          payload.otp = data['response'].otp;
-          payload.otpExpirationTime = data['response'].otpExpirationTime;
-          this._storageService.setVerification(payload);
+    // const payload = {
+    //   phoneNumber: this.phoneNumber,
+    //   otp: "",
+    //   otpExpirationTime: ''
+    // };
+    // this.$http.httpCall().post(this.$api.goTo().merchantLogin(), payload, {})
+    //   .then(data => {
+    //     const res: any = data;
+    //     if (res.status === 200) {
+    //       localStorage.setItem("phoneNumber", this.phoneNumber);
+    //       data = JSON.parse(res.data);
+    //       payload.otp = data['response'].otp;
+    //       payload.otpExpirationTime = data['response'].otpExpirationTime;
+    //       this._storageService.setVerification(payload);
           this.register();
           
-        }
-      }, err => {
-        debugger
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      //   }
+      // }, err => {
+      //   debugger
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      // });
   }
 
 }

@@ -11,10 +11,14 @@ const routes: Routes = [
     redirectTo: 'phone-number',
     pathMatch: 'full'
   },
-   {
+  {
     path: 'phone-number',
     loadChildren: () => import('./phone-number/phone-number.module').then(m => m.PhoneNumberPageModule)
+  },  {
+    path: 'orderlist',
+    loadChildren: () => import('./orderlist/orderlist.module').then( m => m.OrderlistPageModule)
   },
+
   
 ];
 

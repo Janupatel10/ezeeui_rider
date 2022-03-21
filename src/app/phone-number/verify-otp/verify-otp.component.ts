@@ -25,9 +25,9 @@ export class VerifyOtpComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getverificationOtp = this.$storageService.getVerification();
-    this.verificationOTP = this.getverificationOtp["otp"];
-    this.expirationTime = this.getverificationOtp["otpExpirationTime"];
+    // this.getverificationOtp = this.$storageService.getVerification();
+    // this.verificationOTP = this.getverificationOtp["otp"];
+    // this.expirationTime = this.getverificationOtp["otpExpirationTime"];
   }
 
   ionViewDidEnter() {
@@ -51,32 +51,32 @@ export class VerifyOtpComponent implements OnInit {
   }
 
   register() {
-    let payload = {
-      phoneNumber: this.getverificationOtp['phoneNumber'],
-      otp: this.verificationOTP
-    }
-    this.$http.httpCall().post(this.$api.goTo().loginUsingOtp(), payload, {}).then((res: any) => {
-      if (res.status == 200) {
-        let data = JSON.parse(res.data);
-        data = data['response'];
-        let userName = data['userName'];
-        localStorage.setItem("userName", userName);
-        let accessToken = data['accessToken'];
-        let refreshToken = data['refreshToken'];
-        localStorage.setItem("refreshToken", refreshToken);
-        let refreshTokenExpirationTime = data['refreshTokenExpirationTime'];
-        localStorage.setItem("refreshTokenExpirationTime", refreshTokenExpirationTime);
-        this.$http.setToken(accessToken);
+    // let payload = {
+    //   phoneNumber: this.getverificationOtp['phoneNumber'],
+    //   otp: this.verificationOTP
+    // }
+    // this.$http.httpCall().post(this.$api.goTo().loginUsingOtp(), payload, {}).then((res: any) => {
+    //   if (res.status == 200) {
+    //     let data = JSON.parse(res.data);
+    //     data = data['response'];
+    //     let userName = data['userName'];
+    //     localStorage.setItem("userName", userName);
+    //     let accessToken = data['accessToken'];
+    //     let refreshToken = data['refreshToken'];
+    //     localStorage.setItem("refreshToken", refreshToken);
+    //     let refreshTokenExpirationTime = data['refreshTokenExpirationTime'];
+    //     localStorage.setItem("refreshTokenExpirationTime", refreshTokenExpirationTime);
+    //     this.$http.setToken(accessToken);
         this.route.navigate(['/home']);
-      } else {
-        alert("Unable to login.");
-      }
+    //   } else {
+    //     alert("Unable to login.");
+    //   }
 
-    }, err => {
-      alert(err);
-    }).catch(error => {
-      alert(error);
-    })
+    // }, err => {
+    //   alert(err);
+    // }).catch(error => {
+    //   alert(error);
+    // })
 
   }
 
